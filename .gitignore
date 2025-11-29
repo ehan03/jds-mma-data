@@ -208,6 +208,3 @@ __marimo__/
 
 # VS Code
 .vscode/
-
-# Database files
-*.db
