@@ -47,7 +47,6 @@ Repository housing all supplementary material (source code, data, documentation)
 ## Development Setup
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-
 2. Create and activate the virtual environment by running the following from the root of the repository:
 ```bash
 uv venv
@@ -55,7 +54,6 @@ source .venv/bin/activate     # macOS/Linux
 # OR
 .venv\Scripts\activate        # Windows
 ```
-
 3. Install project dependencies by running:
 ```bash
 uv sync
@@ -64,4 +62,56 @@ uv sync
 
 ## Usage
 
+### Data Collection
+
+The following information pertains to data files inside the `data/raw/` folder.
+
+
+For Best Fight Odds data:
+1. Download `straight_bets.zip` from https://github.com/iankotliar/UFC_Final/tree/master/data/bestfightodds_data and rename to `straight_over_time.zip`
+2. Download `moneyline_data_at_close.zip` from the same repository, extract, and rename the singular file `moneyline_data_at_close.csv` to `closing_with_props.csv`
+
+
+For all other sources:
+1. Navigate into the Scrapy project folder:
+```bash
+cd src/scraping/scrapy_ufc
+```
+2. For some given Scrapy spider with name `<spider>`, start crawling by running
+```bash
+scrapy crawl <spider>
+```
+3. Specifically for Tapology spiders that scrape bouts, fighters, and gyms, it is necessary to scrape in batches of 1000 links to avoid temporary IP blocks. This works best in conjunction with IP rotation (e.g., through a VPN). To crawl the `<n>`-th batch of 1000 links, run the following:
+```bash
+scrapy crawl <spider> -a batch_num=<n>
+```
+
+
+It is recommended that one does NOT rerun the spiders, as the raw scrapes are already available in `data/raw/` and running the spiders one by one takes a few weeks of continuous crawling. Moreover, it is highly likely that one or more of the data sources has changed their website structure since January 2025, which would break the existing CSS selector logic.
+
+
+### Cleaning
+
 TODO
+
+
+### Record Linkage
+
+TODO
+
+
+### Database Creation
+
+1. Navigate to the `src/database/` folder from the repository root:
+```bash
+cd src/database
+```
+2. Run the following to initialize the database file and populate all tables using the CSVs in `data/clean/`:
+```bash
+uv run db_creator.py
+```
+
+
+## Documentation
+
+High-level overviews of every table and column in the database can be found in `data/` inside the `Data Dictionary.xlsx` Excel workbook.
