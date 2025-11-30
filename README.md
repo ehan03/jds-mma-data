@@ -87,7 +87,7 @@ scrapy crawl <spider> -a batch_num=<n>
 ```
 
 
-It is recommended that one does NOT rerun the spiders, as the raw scrapes are already available in `data/raw/` and running the spiders one by one takes a few weeks of continuous crawling. Moreover, it is highly likely that one or more of the data sources has changed their website structure since January 2025, which would break the existing CSS selector logic.
+It is recommended that one does NOT rerun the spiders, as the raw scrapes are already available in `data/raw/` and running the spiders one by one takes a few weeks of continuous crawling. Moreover, it is highly likely that one or more of the data sources has changed their website structure since January 2025, which would break the existing CSS selector logic. Consequently, raw scraping may not be fully reproducible, but all raw and intermediate artifacts are archived, and the logic to transform those artifacts should be reproducible in its entirety.
 
 
 ### Cleaning
