@@ -95,12 +95,9 @@ It is recommended that one does NOT rerun the spiders, as the raw scrapes are al
 All data cleaning logic outside what is already embedded inside the Scrapy pipelines can be found inside `notebooks/cleaning/` as Jupyter notebooks organized by data source and should be executed in the order of filename prefix numbering. This ordering can be made somewhat arbitrary, however, as long as the logic for cleaning Tapology data is executed before that of Best Fight Odds data due to downstream dependencies. Running these notebooks will output all CSVs found in `data/clean/`, excluding the mapping tables (see "Record Linkage" for this).
 
 
-The original code for cleaning was developed in a `conda` environment, but I've decided to migrate over to `uv` for ease of setup and tried to pin the same package versions. Due to remaining differences in environments, running the notebooks in this new `venv` may introduce small deviations in the cleaned CSVs for high-precision float values, but everything else should match otherwise.
-
-
 ### Record Linkage
 
-TODO
+All record linkage logic can be found inside `notebooks/matching/` as Jupyter notebooks and should be executed in the order of filename prefix numbering. It is important that the bout ID matching code is run last as it depends on the outputs of event ID and fighter ID matching.
 
 
 ### Database Creation
