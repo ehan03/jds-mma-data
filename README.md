@@ -97,7 +97,7 @@ All data cleaning logic outside what is already embedded inside the Scrapy pipel
 
 ### Record Linkage
 
-All record linkage logic can be found inside `notebooks/matching/` as Jupyter notebooks and should be executed in the order of filename prefix numbering. It is important that the bout ID matching code is run last as it depends on the outputs of event ID and fighter ID matching.
+All record linkage logic can be found inside `notebooks/matching/` as Jupyter notebooks and should be executed in the order of filename prefix numbering.
 
 
 ### Database Creation
