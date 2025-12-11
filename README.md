@@ -110,6 +110,10 @@ cd src/database
 ```bash
 uv run db_creator.py
 ```
+3. To calculate database summary statistics, run the following:
+```bash
+uv run summary_stats.py
+```
 
 
 ## Documentation
