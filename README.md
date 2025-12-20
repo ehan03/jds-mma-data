@@ -46,15 +46,16 @@ Repository housing all supplementary material (source code, data, documentation)
 
 ## Development Setup
 
-1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-2. Create and activate the virtual environment by running the following from the root of the repository:
+1. Clone this repository. If you would like to clone the database file as well, make sure to have [Git LFS](https://git-lfs.com/) installed. This is optional since the database file can be built programmatically later (see [Database Creation](#database-creation)).
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
+3. Create and activate the virtual environment by running the following from the root of the repository:
 ```bash
 uv venv
 source .venv/bin/activate     # macOS/Linux
 # OR
 .venv\Scripts\activate        # Windows
 ```
-3. Install project dependencies by running:
+4. Install project dependencies by running:
 ```bash
 uv sync
 ```
