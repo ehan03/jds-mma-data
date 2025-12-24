@@ -16,7 +16,6 @@ NEWSPIDER_MODULE = "scrapy_ufc.spiders"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "scrapers (+http://www.yourdomain.com)"
 
-# Ignore robots.txt rules lmao
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
